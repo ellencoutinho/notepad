@@ -16,7 +16,7 @@ def load_data(arquivo):
 
 def load_template(template):
     path = f'templates/{template}'
-    with open(path, mode='r') as file:
+    with open(path, mode='r', encoding="utf-8") as file:
         return str(file.read())
     
 def load_note(anotacao):
