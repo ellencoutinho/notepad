@@ -1,4 +1,7 @@
 import json
+from database import Database, Note
+
+db = Database('banco')
 
 def extract_route(requisicao):
     fatiamento = requisicao.split(" ")[1][1::]
@@ -8,10 +11,8 @@ def read_file(path):
     with open(path, mode='r+b') as file:
         return file.read()
 
-def load_data(arquivo):
-    path = f'data/{arquivo}'
-    arquivo = read_file(path)
-    conteudo = json.loads(arquivo)
+def load_data():
+    conteudo = db.get_all()
     return conteudo
 
 def load_template(template):
@@ -20,13 +21,8 @@ def load_template(template):
         return str(file.read())
     
 def load_note(anotacao):
-    # recebe a nova anotação (dicionario) e a adiciona à lista do arquivo notes.json
-    
-    conteudo = load_data('notes.json')
-    conteudo.append(anotacao)
-
-    with open('data/notes.json', 'w') as file:
-        json.dump(conteudo, file, indent=4)
+    # recebe a nova anotação (dicionario) e a adiciona à tabela da database
+    db.add(anotacao)
 
 def build_response(body='', code=200, reason='OK', headers=''):
     # 'HTTP/1.1 200 OK'
