@@ -10,8 +10,8 @@ def index(request):
         partes = request.split('\n\n')
         corpo = partes[1]
         lista = corpo.split('&')
-        titulo = lista[0].split('=')[1]
-        conteudo = lista[1].split('=')[1]
+        titulo = unquote_plus(lista[0].split('=')[1])
+        conteudo = unquote_plus(lista[1].split('=')[1])
         load_note(Note(title=titulo, content=conteudo))
 
         return(build_response(code=303, reason='See Other', headers='Location: /'))
