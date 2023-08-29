@@ -73,6 +73,13 @@ body {
     padding: 5px;
 }
 
+.lixeira {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 10%;
+  height: auto;
+}
+
 .subtitle{
   padding: 10px;
 }
@@ -103,6 +110,7 @@ body {
 }
 
 .form-card-title {
+  max-width: 40%;
   border-color: transparent;
   font-size: large;
   font-weight: bold;
@@ -129,6 +137,11 @@ body {
   border-radius: 5px;
   background-color: #ead3a7;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
 }
 
 .card h3 {
