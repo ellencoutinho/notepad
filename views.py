@@ -1,4 +1,4 @@
-from utils import load_data, load_template, load_note, build_response, apaga_nota
+from utils import load_data, load_template, load_note, build_response, id_correspondente
 from urllib.parse import unquote_plus
 from database import Note
 
@@ -39,7 +39,9 @@ def edit(request, id):
         conteudo = unquote_plus(lista[1].split('=')[1])
         load_note(Note(title=titulo, content=conteudo))
         return(build_response(code=303, reason='See Other', headers='Location: /')) # recarrega pagina
-        
-    response = build_response(body=load_template('edit.html'))
+    
+    title, content = id_correspondente(id)
+    response = build_response(body=load_template('edit.html').format(title=title, content=content))
+    
 
     return response

@@ -27,6 +27,15 @@ class Database:
         self.conn.execute(f"DELETE FROM note WHERE id = {note_id}")
         self.conn.commit()
 
+    def id_correspondente(self, id_nota):
+        cursor = self.conn.execute(f"SELECT id, title, content FROM note")
+        for linha in cursor:
+            id, title, content = linha[0], linha[1], linha[2]
+            if id == int(id_nota):
+                return(title, content)
+
+
+
 
 @dataclass
 class Note:

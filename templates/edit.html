@@ -27,17 +27,17 @@
 
     <main class="container">
       <form class="form-card" method="post">
-        <input
-          class="form-card-title"
-          type="text"
+        <textarea
+          class="title_edit"
           name="titulo"
           placeholder="Título"
-        />
+        >{title}</textarea>
+
         <textarea
           class="autoresize"
           name="detalhes"
           placeholder="Digite o conteúdo..."
-        ></textarea>
+        >{content}</textarea>
         <button class="btn" type="submit">Criar</button>
       </form>
 

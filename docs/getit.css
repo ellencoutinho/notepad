@@ -126,6 +126,13 @@ body {
   width: 30rem;
 }
 
+.title_edit{
+  border-color: transparent;
+  font-size: large;
+  font-weight: bold;
+  resize: none;
+}
+
 .form-card-title {
   max-width: 40%;
   border-color: transparent;

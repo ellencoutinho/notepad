@@ -34,3 +34,9 @@ def build_response(body='', code=200, reason='OK', headers=''):
 def apaga_nota(id):
     db.delete(id)
     return(build_response(code=303, reason='See Other', headers='Location: /'))
+
+def id_correspondente(id):
+    # Recebe id e devolve o titulo e conteudo desse id
+    title, content = db.id_correspondente(id)
+    return title, content
+    
