@@ -27,6 +27,26 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.graybutton{
+  height: 2rem;
+  width: 40%;
+  background-color: #d3d3d3;
+  appearance: none;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(220, 217, 217, 0.6);
+}
+
+.yellowbutton{
+  height: 2rem;
+  width: 40%;
+  background-color: #f7d736;
+  appearance: none;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(220, 217, 217, 0.6);
+}
+
 .button {
   display: flex;
   justify-content: flex-end;
@@ -41,6 +61,15 @@ body {
 }
 
 /* Fonte: https://codepen.io/CrisWoler/pen/ogXBLj */
+.half{
+  max-width: 50%;
+}
+
+.center{
+  display: flex;
+  justify-content: space-around;
+}
+
 .btn {
   position: relative;
   display: block;

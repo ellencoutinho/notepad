@@ -38,7 +38,12 @@
           name="detalhes"
           placeholder="Digite o conteúdo..."
         >{content}</textarea>
-        <button class="btn" type="submit">Criar</button>
+
+        <div class="center">
+            <button type="button" onclick="location.href='../'" class="graybutton">Cancelar</button>
+            <button type="submit" onclick="location.href='/update'" formmethod="post" class="yellowbutton">Salvar</button>
+        </div>
+
       </form>
 
     </main>
