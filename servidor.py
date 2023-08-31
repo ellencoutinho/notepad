@@ -1,6 +1,6 @@
 import socket
 from pathlib import Path
-from utils import extract_route, read_file, build_response
+from utils import extract_route, read_file, build_response, apaga_nota
 from views import index
 CUR_DIR = Path(__file__).parent
 
@@ -20,14 +20,19 @@ while True:
     # accept() trava a execução do programa até que uma requisição seja recebida
     request = client_connection.recv(1024).decode() # dados enviados pelo cliente em no máximo 1024 bytes
     print('*'*100)
-    print(request)
+    print(request.split('\n')[0])
 
     route = extract_route(request)
+    
     filepath = CUR_DIR / route
     if filepath.is_file():
         response = build_response() + read_file(filepath)
     elif route == '':
         response = index(request)
+    elif request.split()[1].split('/')[1] == 'delete':
+        response = apaga_nota(request.split()[1].split('/')[2])
+
+    #elif edit -> copia index com novo html (cc+cv)
     else:
         response = build_response()
     client_connection.sendall(response)

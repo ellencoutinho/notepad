@@ -1,4 +1,3 @@
-import json
 from database import Database, Note
 
 db = Database('banco')
@@ -32,3 +31,6 @@ def build_response(body='', code=200, reason='OK', headers=''):
         response = 'HTTP/1.1' + ' ' + str(code) + ' ' + reason + '\n' + str(headers) + '\n\n' + body
     return response.encode()
 
+def apaga_nota(id):
+    db.delete(id)
+    return(build_response(code=303, reason='See Other', headers='Location: /'))

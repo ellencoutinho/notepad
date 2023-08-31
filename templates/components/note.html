@@ -1,7 +1,9 @@
 <li class="card">
     <h3 class="card-title">
         {title}
-        <img src="../../img/lixeira.png" class="lixeira" alt="lixeira">
+        <button type="button" onclick="location.href='/delete/{id}'" formmethod="get" class="button">
+            <img src="../../img/lixeira.png" class="lixeira" alt="lixeira">
+        </button>
     </h3>
     <p class="card-content">{details}</p>
 </li>
