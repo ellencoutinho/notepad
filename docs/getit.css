@@ -30,7 +30,7 @@ body {
 .button {
   display: flex;
   justify-content: flex-end;
-  width: 2rem;
+  width: auto;
   height: auto;
   background-color: inherit;
   border: 0;
@@ -86,9 +86,15 @@ body {
     padding: 5px;
 }
 
-.lixeira {
+.icones{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.subicone {
   max-width: 1rem;
   height: auto;
+  margin-left: 0.5rem;
 }
 
 .subtitle{
