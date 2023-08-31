@@ -26,3 +26,20 @@ def index(request):
     response = build_response(body=load_template('index.html').format(notes=notes))
 
     return response
+
+def edit(request, id):
+    # A string de request sempre começa com o tipo da requisição (ex: GET, POST)
+    if request.startswith('POST'):
+        request = request.replace('\r', '')  # Remove caracteres indesejados
+        # Cabeçalho e corpo estão sempre separados por duas quebras de linha
+        partes = request.split('\n\n')
+        corpo = partes[1]
+        lista = corpo.split('&')
+        titulo = unquote_plus(lista[0].split('=')[1])
+        conteudo = unquote_plus(lista[1].split('=')[1])
+        load_note(Note(title=titulo, content=conteudo))
+        return(build_response(code=303, reason='See Other', headers='Location: /')) # recarrega pagina
+        
+    response = build_response(body=load_template('edit.html'))
+
+    return response

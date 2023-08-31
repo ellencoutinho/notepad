@@ -1,7 +1,7 @@
 import socket
 from pathlib import Path
 from utils import extract_route, read_file, build_response, apaga_nota
-from views import index
+from views import index, edit
 CUR_DIR = Path(__file__).parent
 
 SERVER_HOST = 'localhost'
@@ -31,6 +31,8 @@ while True:
         response = index(request)
     elif request.split()[1].split('/')[1] == 'delete':
         response = apaga_nota(request.split()[1].split('/')[2])
+    elif request.split()[1].split('/')[1] == 'edit':
+        response = edit(request, id=request.split()[1].split('/')[2])
 
     #elif edit -> copia index com novo html (cc+cv)
     else:
