@@ -34,9 +34,6 @@ class Database:
             if id == int(id_nota):
                 return(title, content)
 
-
-
-
 @dataclass
 class Note:
     id: int = None

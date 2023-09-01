@@ -20,7 +20,7 @@ while True:
     # accept() trava a execução do programa até que uma requisição seja recebida
     request = client_connection.recv(1024).decode() # dados enviados pelo cliente em no máximo 1024 bytes
     print('*'*100)
-    print(request.split('\n')[0])
+    print(request)
 
     route = extract_route(request)
     

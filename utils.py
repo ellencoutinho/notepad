@@ -39,4 +39,7 @@ def id_correspondente(id):
     # Recebe id e devolve o titulo e conteudo desse id
     title, content = db.id_correspondente(id)
     return title, content
+
+def edit_note(note):
+    db.update(note)
     
