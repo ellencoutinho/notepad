@@ -32,7 +32,6 @@ def edit(request, id):
     if request.startswith('POST'):
         # Update valor da base de dados com base no id
 
-
         request = request.replace('\r', '')  # Remove caracteres indesejados
         # Cabeçalho e corpo estão sempre separados por duas quebras de linha
         partes = request.split('\n\n')
@@ -41,7 +40,7 @@ def edit(request, id):
         titulo = unquote_plus(lista[0].split('=')[1])
         conteudo = unquote_plus(lista[1].split('=')[1])
         edit_note(Note(id=id, title=titulo, content=conteudo))
-        return(build_response(code=303, reason='See Other', headers='Location: /')) # recarrega pagina
+        return(build_response(code=303, reason='See Other', headers='Location: /')) # Recarrega pagina
     
     title, content = id_correspondente(id)
     response = build_response(body=load_template('edit.html').format(title=title, content=content))

@@ -17,7 +17,6 @@ print(f'Servidor escutando em (ctrl+click): http://{SERVER_HOST}:{SERVER_PORT}')
 
 while True:
     client_connection, client_address = server_socket.accept()
-    # accept() trava a execução do programa até que uma requisição seja recebida
     request = client_connection.recv(1024).decode() # dados enviados pelo cliente em no máximo 1024 bytes
     print('*'*100)
     print(request)
@@ -34,7 +33,6 @@ while True:
     elif request.split()[1].split('/')[1] == 'edit':
         response = edit(request, id=request.split()[1].split('/')[2])
 
-    #elif edit -> copia index com novo html (cc+cv)
     else:
         response = build_response(code=404, body= load_template("erro404.html"))
     client_connection.sendall(response)
