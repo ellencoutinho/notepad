@@ -1,6 +1,6 @@
 import socket
 from pathlib import Path
-from utils import extract_route, read_file, build_response, apaga_nota
+from utils import extract_route, read_file, build_response, apaga_nota, load_template
 from views import index, edit
 CUR_DIR = Path(__file__).parent
 
@@ -36,7 +36,7 @@ while True:
 
     #elif edit -> copia index com novo html (cc+cv)
     else:
-        response = build_response()
+        response = build_response(code=404, body= load_template("erro404.html"))
     client_connection.sendall(response)
 
     print('Um cliente se conectou!')
